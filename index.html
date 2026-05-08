@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -19,456 +20,445 @@
     --border: rgba(200,169,110,0.3);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+- { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'Tajawal', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-  }
+body {
+font-family: ‘Tajawal’, sans-serif;
+background: var(–bg);
+color: var(–text);
+overflow-x: hidden;
+}
 
-  /* ── Hero ── */
-  .hero {
-    background: var(--bg-dark);
-    position: relative;
-    overflow: hidden;
-    padding: 80px 24px 110px;
-    text-align: center;
-  }
+/* ── Hero ── */
+.hero {
+background: var(–bg-dark);
+position: relative;
+overflow: hidden;
+padding: 80px 24px 110px;
+text-align: center;
+}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,169,110,0.15) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(30,58,95,0.8) 0%, transparent 60%);
-  }
+.hero::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,169,110,0.15) 0%, transparent 70%),
+radial-gradient(ellipse 40% 40% at 20% 80%, rgba(30,58,95,0.8) 0%, transparent 60%);
+}
 
-  .hero-pattern {
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 40px,
-        rgba(200,169,110,0.04) 40px,
-        rgba(200,169,110,0.04) 41px
-      );
-  }
+.hero-pattern {
+position: absolute;
+inset: 0;
+background-image:
+repeating-linear-gradient(
+45deg,
+transparent,
+transparent 40px,
+rgba(200,169,110,0.04) 40px,
+rgba(200,169,110,0.04) 41px
+);
+}
 
-  .hero-content { position: relative; z-index: 1; max-width: 650px; margin: 0 auto; animation: fadeUp 0.7s ease forwards; }
+.hero-content { position: relative; z-index: 1; max-width: 650px; margin: 0 auto; animation: fadeUp 0.7s ease forwards; }
 
-  .dev-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    background: linear-gradient(135deg, var(--accent), #a07840);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.4rem;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,169,110,0.3);
-  }
+.dev-avatar {
+width: 90px;
+height: 90px;
+border-radius: 50%;
+margin: 0 auto 20px;
+background: linear-gradient(135deg, var(–accent), #a07840);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2.4rem;
+box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,169,110,0.3);
+}
 
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.5px;
-    margin-bottom: 10px;
-  }
+.hero h1 {
+font-size: clamp(2rem, 5vw, 3rem);
+font-weight: 800;
+color: var(–white);
+letter-spacing: -0.5px;
+margin-bottom: 10px;
+}
 
-  .hero h1 span { color: var(--accent); }
+.hero h1 span { color: var(–accent); }
 
-  .hero .subtitle {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 300;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
+.hero .subtitle {
+font-size: 1.05rem;
+color: rgba(255,255,255,0.6);
+font-weight: 300;
+line-height: 1.7;
+margin-bottom: 20px;
+}
 
-  .version-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(200,169,110,0.15);
-    border: 1px solid rgba(200,169,110,0.3);
-    color: var(--accent-light);
-    font-size: 0.8rem;
-    padding: 6px 16px;
-    border-radius: 20px;
-  }
+.version-badge {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+background: rgba(200,169,110,0.15);
+border: 1px solid rgba(200,169,110,0.3);
+color: var(–accent-light);
+font-size: 0.8rem;
+padding: 6px 16px;
+border-radius: 20px;
+}
 
-  /* ── Wave ── */
-  .wave { display: block; width: 100%; height: 60px; margin-top: -2px; }
+/* ── Wave ── */
+.wave { display: block; width: 100%; height: 60px; margin-top: -2px; }
 
-  /* ── Stats Bar ── */
-  .stats-bar {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-  }
+/* ── Stats Bar ── */
+.stats-bar {
+background: var(–white);
+border-bottom: 1px solid var(–border);
+}
 
-  .stats-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 28px 24px;
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
+.stats-inner {
+max-width: 900px;
+margin: 0 auto;
+padding: 28px 24px;
+display: flex;
+justify-content: center;
+gap: 48px;
+flex-wrap: wrap;
+}
 
-  .stat-item { text-align: center; }
+.stat-item { text-align: center; }
 
-  .stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
+.stat-number {
+display: block;
+font-size: 2rem;
+font-weight: 800;
+color: var(–primary);
+line-height: 1;
+margin-bottom: 4px;
+}
 
-  .stat-number span { color: var(--accent); }
+.stat-number span { color: var(–accent); }
 
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    font-weight: 500;
-  }
+.stat-label {
+font-size: 0.8rem;
+color: var(–text-light);
+font-weight: 500;
+}
 
-  /* ── Section ── */
-  section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 24px;
-  }
+/* ── Section ── */
+section {
+max-width: 900px;
+margin: 0 auto;
+padding: 60px 24px;
+}
 
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
+.section-label {
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–accent);
+margin-bottom: 8px;
+}
 
-  .section-title {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
+.section-title {
+font-size: clamp(1.6rem, 3vw, 2.2rem);
+font-weight: 800;
+color: var(–primary);
+margin-bottom: 10px;
+line-height: 1.3;
+}
 
-  .divider {
-    width: 60px;
-    height: 3px;
-    background: var(--accent);
-    border-radius: 2px;
-    margin-bottom: 36px;
-  }
+.divider {
+width: 60px;
+height: 3px;
+background: var(–accent);
+border-radius: 2px;
+margin-bottom: 36px;
+}
 
-  /* ── Apps Grid ── */
-  .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-  }
+/* ── Apps Grid ── */
+.apps-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 20px;
+}
 
-  .app-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    animation: fadeUp 0.5s ease forwards;
-    opacity: 0;
-  }
+.app-card {
+background: var(–white);
+border: 1px solid var(–border);
+border-radius: 20px;
+padding: 28px 24px;
+transition: transform 0.2s, box-shadow 0.2s;
+display: flex;
+flex-direction: column;
+gap: 14px;
+animation: fadeUp 0.5s ease forwards;
+opacity: 0;
+}
 
-  .app-card:nth-child(1) { animation-delay: 0.05s; }
-  .app-card:nth-child(2) { animation-delay: 0.1s; }
-  .app-card:nth-child(3) { animation-delay: 0.15s; }
-  .app-card:nth-child(4) { animation-delay: 0.2s; }
-  .app-card:nth-child(5) { animation-delay: 0.25s; }
-  .app-card:nth-child(6) { animation-delay: 0.3s; }
-  .app-card:nth-child(7) { animation-delay: 0.35s; }
+.app-card:nth-child(1) { animation-delay: 0.05s; }
+.app-card:nth-child(2) { animation-delay: 0.1s; }
+.app-card:nth-child(3) { animation-delay: 0.15s; }
+.app-card:nth-child(4) { animation-delay: 0.2s; }
+.app-card:nth-child(5) { animation-delay: 0.25s; }
+.app-card:nth-child(6) { animation-delay: 0.3s; }
+.app-card:nth-child(7) { animation-delay: 0.35s; }
+.app-card:nth-child(8) { animation-delay: 0.4s; }
+.app-card:nth-child(9) { animation-delay: 0.45s; }
 
-  .app-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 48px rgba(30,58,95,0.12);
-  }
+.app-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 16px 48px rgba(30,58,95,0.12);
+}
 
-  .app-card-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+.app-card-header {
+display: flex;
+align-items: center;
+gap: 16px;
+}
 
-  .app-icon-wrap {
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-    overflow: hidden;
-    flex-shrink: 0;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.app-icon-wrap {
+width: 60px;
+height: 60px;
+border-radius: 14px;
+overflow: hidden;
+flex-shrink: 0;
+background: var(–bg);
+border: 1px solid var(–border);
+display: flex;
+align-items: center;
+justify-content: center;
+}
 
-  .app-icon-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 13px;
-  }
+.app-icon-wrap img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 13px;
+}
 
-  .app-icon-placeholder {
-    font-size: 1.8rem;
-  }
+.app-icon-placeholder {
+font-size: 1.8rem;
+}
 
-  .app-meta { flex: 1; min-width: 0; }
+.app-meta { flex: 1; min-width: 0; }
 
-  .app-name {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: var(--primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.app-name {
+font-size: 1.05rem;
+font-weight: 800;
+color: var(–primary);
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
 
-  .app-name-en {
-    font-size: 0.78rem;
-    color: var(--text-light);
-    font-weight: 400;
-    margin-top: 2px;
-  }
+.app-name-en {
+font-size: 0.78rem;
+color: var(–text-light);
+font-weight: 400;
+margin-top: 2px;
+}
 
-  .app-category {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(200,169,110,0.1);
-    border: 1px solid rgba(200,169,110,0.25);
-    border-radius: 20px;
-    padding: 3px 10px;
-    margin-top: 6px;
-  }
+.app-category {
+display: inline-block;
+font-size: 0.7rem;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–accent);
+background: rgba(200,169,110,0.1);
+border: 1px solid rgba(200,169,110,0.25);
+border-radius: 20px;
+padding: 3px 10px;
+margin-top: 6px;
+}
 
-  .app-desc {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.65;
-    flex: 1;
-  }
+.app-desc {
+font-size: 0.88rem;
+color: var(–text-light);
+line-height: 1.65;
+flex: 1;
+}
 
-  .app-store-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--bg-dark);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 12px;
-    padding: 10px 16px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    font-family: 'Tajawal', sans-serif;
-    transition: background 0.2s, transform 0.15s;
-    align-self: flex-start;
-    border: 1px solid rgba(200,169,110,0.25);
-  }
+.app-store-btn {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: var(–bg-dark);
+color: var(–white);
+text-decoration: none;
+border-radius: 12px;
+padding: 10px 16px;
+font-size: 0.82rem;
+font-weight: 600;
+font-family: ‘Tajawal’, sans-serif;
+transition: background 0.2s, transform 0.15s;
+align-self: flex-start;
+border: 1px solid rgba(200,169,110,0.25);
+}
 
-  .app-store-btn:hover {
-    background: var(--primary);
-    transform: translateY(-1px);
-  }
+.app-store-btn:hover {
+background: var(–primary);
+transform: translateY(-1px);
+}
 
-  .app-store-btn svg {
-    flex-shrink: 0;
-  }
+.app-store-btn svg {
+flex-shrink: 0;
+}
 
-  /* ── Features (white bg section) ── */
-  .features-section { background: var(--white); }
+/* ── Features (white bg section) ── */
+.features-section { background: var(–white); }
 
-  .features-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 24px;
-  }
+.features-inner {
+max-width: 900px;
+margin: 0 auto;
+padding: 60px 24px;
+}
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 20px;
+}
 
-  .feature-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 22px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+.feature-card {
+background: var(–bg);
+border: 1px solid var(–border);
+border-radius: 16px;
+padding: 28px 22px;
+transition: transform 0.2s, box-shadow 0.2s;
+}
 
-  .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(30,58,95,0.1);
-  }
+.feature-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 12px 40px rgba(30,58,95,0.1);
+}
 
-  .feature-icon { font-size: 2rem; margin-bottom: 14px; }
+.feature-icon { font-size: 2rem; margin-bottom: 14px; }
 
-  .feature-card h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 8px;
-  }
+.feature-card h3 {
+font-size: 1rem;
+font-weight: 700;
+color: var(–primary);
+margin-bottom: 8px;
+}
 
-  .feature-card p {
-    font-size: 0.87rem;
-    color: var(--text-light);
-    line-height: 1.65;
-  }
+.feature-card p {
+font-size: 0.87rem;
+color: var(–text-light);
+line-height: 1.65;
+}
 
-  /* ── Developer Section ── */
-  .developer-section { background: var(--primary); }
+/* ── Developer Section ── */
+.developer-section { background: var(–primary); }
 
-  .developer-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 24px;
-    text-align: center;
-  }
+.developer-inner {
+max-width: 900px;
+margin: 0 auto;
+padding: 60px 24px;
+text-align: center;
+}
 
-  .developer-avatar {
-    width: 88px;
-    height: 88px;
-    background: linear-gradient(135deg, var(--accent), #a07840);
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-  }
+.developer-avatar {
+width: 88px;
+height: 88px;
+background: linear-gradient(135deg, var(–accent), #a07840);
+border-radius: 50%;
+margin: 0 auto 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 2.2rem;
+box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
 
-  .developer-inner h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
+.developer-inner h2 {
+font-size: 1.8rem;
+font-weight: 800;
+color: var(–white);
+margin-bottom: 6px;
+}
 
-  .developer-inner .role {
-    font-size: 0.9rem;
-    color: var(--accent-light);
-    margin-bottom: 10px;
-  }
+.developer-inner .role {
+font-size: 0.9rem;
+color: var(–accent-light);
+margin-bottom: 10px;
+}
 
-  .developer-inner .bio {
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.55);
-    max-width: 520px;
-    margin: 0 auto 32px;
-    line-height: 1.7;
-    font-weight: 300;
-  }
+.developer-inner .bio {
+font-size: 0.92rem;
+color: rgba(255,255,255,0.55);
+max-width: 520px;
+margin: 0 auto 32px;
+line-height: 1.7;
+font-weight: 300;
+}
 
-  .contact-buttons {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+.contact-buttons {
+display: flex;
+gap: 14px;
+justify-content: center;
+flex-wrap: wrap;
+}
 
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 26px;
-    border-radius: 50px;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+.contact-btn {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 13px 26px;
+border-radius: 50px;
+font-family: ‘Tajawal’, sans-serif;
+font-size: 0.95rem;
+font-weight: 600;
+text-decoration: none;
+transition: transform 0.2s, box-shadow 0.2s;
+}
 
-  .contact-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
+.contact-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 
-  .btn-appstore {
-    background: var(--accent);
-    color: var(--bg-dark);
-  }
+.btn-appstore {
+background: var(–accent);
+color: var(–bg-dark);
+}
 
-  .btn-instagram {
-    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    color: #fff;
-  }
+.btn-instagram {
+background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+color: #fff;
+}
 
-  .btn-icon { font-size: 1.2rem; }
+.btn-icon { font-size: 1.2rem; }
 
-  /* ── Footer ── */
-  footer {
-    background: var(--bg-dark);
-    text-align: center;
-    padding: 32px 24px;
-    color: rgba(255,255,255,0.3);
-    font-size: 0.85rem;
-  }
+/* ── Footer ── */
+footer {
+background: var(–bg-dark);
+text-align: center;
+padding: 32px 24px;
+color: rgba(255,255,255,0.3);
+font-size: 0.85rem;
+}
 
-  footer span { color: var(--accent); }
+footer span { color: var(–accent); }
 
-  /* ── Shimmer skeleton ── */
-  @keyframes shimmer {
-    0% { background-position: -400px 0; }
-    100% { background-position: 400px 0; }
-  }
+/* ── Animations ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to   { opacity: 1; transform: translateY(0); }
+}
 
-  .icon-skeleton {
-    width: 60px;
-    height: 60px;
-    border-radius: 14px;
-    background: linear-gradient(90deg, #e8ddd0 25%, #f0e8dd 50%, #e8ddd0 75%);
-    background-size: 400px 100%;
-    animation: shimmer 1.2s infinite;
-  }
-
-  /* ── Animations ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 600px) {
-    .contact-buttons { flex-direction: column; align-items: center; }
-    .contact-btn { width: 100%; max-width: 300px; justify-content: center; }
-    .stats-inner { gap: 28px; }
-  }
+@media (max-width: 600px) {
+.contact-buttons { flex-direction: column; align-items: center; }
+.contact-btn { width: 100%; max-width: 300px; justify-content: center; }
+.stats-inner { gap: 28px; }
+}
 </style>
+
 </head>
 <body>
 
 <!-- Hero -->
+
 <div class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-content">
@@ -476,7 +466,7 @@
     <h1>أحمد <span>المطيري</span></h1>
     <p class="subtitle">مطوّر تطبيقات iOS مستقل من الكويت<br> </p>
     <div class="version-badge">
-      <span>●</span> 7 تطبيقات متاحة الآن
+      <span>●</span> 9 تطبيقات متاحة الآن
     </div>
   </div>
 </div>
@@ -486,10 +476,11 @@
 </svg>
 
 <!-- Stats Bar -->
+
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat-item">
-      <span class="stat-number">7<span>+</span></span>
+      <span class="stat-number">9<span>+</span></span>
       <span class="stat-label">تطبيقات منشورة</span>
     </div>
     <div class="stat-item">
@@ -504,6 +495,7 @@
 </svg>
 
 <!-- Apps Grid -->
+
 <section>
   <div class="section-label">التطبيقات</div>
   <div class="section-title">تطبيقاتي على App Store</div>
@@ -511,133 +503,171 @@
 
   <div class="apps-grid" id="apps-grid">
 
-    <!-- App 1: فكر شوية -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-6742149901"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">فكر شوية!</div>
-          <div class="app-category">لعبة جمعات </div>
-        </div>
-      </div>
-      <p class="app-desc">لعبة تريڤيا تفاعلية — اختبر معلوماتك في تحديات سريعة وممتعة.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%81%D9%83%D8%B1-%D8%B4%D9%88%D9%8A%D8%A9/id6742149901" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+```
+<!-- App 1: فكر شوية -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/d8/55/cdd8558c-96a6-6bd8-fc28-b63e2b27c03e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="فكر شوية icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">فكر شوية!</div>
+      <div class="app-category">لعبة جمعات </div>
     </div>
+  </div>
+  <p class="app-desc">لعبة تريڤيا تفاعلية — اختبر معلوماتك في تحديات سريعة وممتعة.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%81%D9%83%D8%B1-%D8%B4%D9%88%D9%8A%D8%A9/id6742149901" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
 
-    <!-- App 2: Sudoku -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-6758775649"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">Sudoku Puzzle!</div>
-          <div class="app-name-en">Numbers Game</div>
-          <div class="app-category">ألغاز</div>
-        </div>
-      </div>
-      <p class="app-desc">لعبة السودوكو الكلاسيكية — حل ألغاز الأرقام بمستويات متعددة تناسب الجميع.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/sudoku-puzzle-numbers-game/id6758775649" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+<!-- App 2: Sudoku -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/71/5d/3f/715d3f05-4f8d-da0c-c8cf-b37842cb05b3/Placeholder.mill/512x512bb.jpg" alt="Sudoku icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">Sudoku Puzzle!</div>
+      <div class="app-name-en">Numbers Game</div>
+      <div class="app-category">ألغاز</div>
     </div>
+  </div>
+  <p class="app-desc">لعبة السودوكو الكلاسيكية — حل ألغاز الأرقام بمستويات متعددة تناسب الجميع.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/sudoku-puzzle-numbers-game/id6758775649" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
 
-    <!-- App 3: تحدي الكومكس -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-1641003990"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">تحدي الكومكس</div>
-          <div class="app-name-en">Comics Challenge</div>
-          <div class="app-category">تريڤيا</div>
-        </div>
-      </div>
-      <p class="app-desc">هل أنت خبير كومكس؟ اختبر معلوماتك عن عالم الأبطال الخارقين والقصص المصورة.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%85%D9%83%D8%B3/id1641003990" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+<!-- App 3: تحدي الكومكس -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/d4/a3/c6/d4a3c6dc-810f-21b8-5504-562f665a494f/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/512x512bb.jpg" alt="تحدي الكومكس icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">تحدي الكومكس</div>
+      <div class="app-name-en">Comics Challenge</div>
+      <div class="app-category">تريڤيا</div>
     </div>
+  </div>
+  <p class="app-desc">هل أنت خبير كومكس؟ اختبر معلوماتك عن عالم الأبطال الخارقين والقصص المصورة.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/%D8%AA%D8%AD%D8%AF%D9%8A-%D8%A7%D9%84%D9%83%D9%88%D9%85%D9%83%D8%B3/id1641003990" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
 
-    <!-- App 4: Connect Letters -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-1669288810"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">Connect Letters!</div>
-          <div class="app-name-en">Word Puzzle Game</div>
-          <div class="app-category">ألغاز</div>
-        </div>
-      </div>
-      <p class="app-desc">ربّط الحروف لتكوين كلمات — لعبة ألغاز ذكية تحدّي عقلك وتوسّع مفرداتك.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/connect-letters/id1669288810" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+<!-- App 4: Connect Letters -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/d5/1e/56/d51e56cc-7b73-066c-6eec-797eb690884a/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg" alt="Connect Letters icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">Connect Letters!</div>
+      <div class="app-name-en">Word Puzzle Game</div>
+      <div class="app-category">ألغاز</div>
     </div>
+  </div>
+  <p class="app-desc">ربّط الحروف لتكوين كلمات — لعبة ألغاز ذكية تحدّي عقلك وتوسّع مفرداتك.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/connect-letters/id1669288810" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
 
-    <!-- App 5: قيدها -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-6744545396"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">قيدها</div>
-          <div class="app-name-en">Baloot Scorekeeper</div>
-          <div class="app-category">أدوات</div>
-        </div>
-      </div>
-      <p class="app-desc">حاسبة نقاط البلوت الأكثر سهولة — سجّل نتائج جلساتك بدقة وسرعة.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%82%D9%8A%D8%AF%D9%87%D8%A7-%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9-%D8%A8%D9%84%D9%88%D8%AA/id6744545396" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+<!-- App 5: قيدها -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/03/26/020326bc-d12f-2a80-6856-f83dffeef855/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg" alt="قيدها icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">قيدها</div>
+      <div class="app-name-en">Baloot Scorekeeper</div>
+      <div class="app-category">أدوات</div>
     </div>
+  </div>
+  <p class="app-desc">حاسبة نقاط البلوت الأكثر سهولة — سجّل نتائج جلساتك بدقة وسرعة.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%82%D9%8A%D8%AF%D9%87%D8%A7-%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9-%D8%A8%D9%84%D9%88%D8%AA/id6744545396" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
 
-    <!-- App 6: ولو آية -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-6581487564"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">ولو آية</div>
-          <div class="app-name-en">Walo Aya</div>
-          <div class="app-category">تطبيقات دينية</div>
-        </div>
-      </div>
-      <p class="app-desc">آيات قرآنية يومية ومحتوى ديني مُلهم يرافقك في يومك.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%88%D9%84%D9%88-%D8%A2%D9%8A%D8%A9/id6581487564" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+<!-- App 6: ولو آية -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/71/3b/34/713b34ac-8b87-90d8-24d7-04d0dec679e1/Placeholder.mill/512x512bb.jpg" alt="ولو آية icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">ولو آية</div>
+      <div class="app-name-en">Walo Aya</div>
+      <div class="app-category">تطبيقات دينية</div>
     </div>
+  </div>
+  <p class="app-desc">آيات قرآنية يومية ومحتوى ديني مُلهم يرافقك في يومك.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%88%D9%84%D9%88-%D8%A2%D9%8A%D8%A9/id6581487564" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
 
-    <!-- App 7: إذاعة القرآن -->
-    <div class="app-card">
-      <div class="app-card-header">
-        <div class="app-icon-wrap" id="icon-6446178832"><div class="icon-skeleton"></div></div>
-        <div class="app-meta">
-          <div class="app-name">إذاعة القرآن</div>
-          <div class="app-name-en">Quran Radio</div>
-          <div class="app-category">تطبيقات دينية</div>
-        </div>
-      </div>
-      <p class="app-desc">استمع إلى إذاعة القرآن الكريم بصوت أجمل القراء في أي وقت ومن أي مكان.</p>
-      <a class="app-store-btn" href="https://apps.apple.com/us/app/%D8%A7%D8%B0%D8%A7%D8%B9%D8%A9-%D8%A7%D9%84%D9%82%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85/id6446178832" target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        تنزيل
-      </a>
+<!-- App 7: إذاعة القرآن -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f3/39/06/f33906a0-d9f9-c334-fbc9-e5671a6792fa/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="إذاعة القرآن icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">إذاعة القرآن</div>
+      <div class="app-name-en">Quran Radio</div>
+      <div class="app-category">تطبيقات دينية</div>
     </div>
+  </div>
+  <p class="app-desc">استمع إلى إذاعة القرآن الكريم بصوت أجمل القراء في أي وقت ومن أي مكان.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/%D8%A7%D8%B0%D8%A7%D8%B9%D8%A9-%D8%A7%D9%84%D9%82%D8%B1%D8%A7%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85/id6446178832" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
+
+<!-- App 8: مناسبات مطير -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/52/72/8d/52728da3-61f8-5b05-7c77-4e1dd538444c/Placeholder.mill/512x512bb.jpg" alt="مناسبات مطير icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">مناسبات مطير</div>
+      <div class="app-name-en">Mterapp Events</div>
+      <div class="app-category">مجتمع</div>
+    </div>
+  </div>
+  <p class="app-desc">تطبيق مخصص لمناسبات ومجتمع مطير — تابع الأحداث والفعاليات بكل سهولة.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/مناسبات-مطير/id6759573458" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
+
+<!-- App 9: لعبة وصلة -->
+<div class="app-card">
+  <div class="app-card-header">
+    <div class="app-icon-wrap"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/38/63/d2/3863d29a-1cd7-29b7-fd93-d90968f2da04/Placeholder.mill/512x512bb.jpg" alt="لعبة وصلة icon" loading="lazy"></div>
+    <div class="app-meta">
+      <div class="app-name">لعبة وصلة</div>
+      <div class="app-name-en">Wasla Game</div>
+      <div class="app-category">ألغاز</div>
+    </div>
+  </div>
+  <p class="app-desc">اكتشف الرابط المشترك بين الكلمات — لعبة ذكاء وتفكير تحدّي عقلك في كل جولة.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/us/app/%D9%84%D8%B9%D8%A8%D8%A9-%D9%88%D8%B5%D9%84%D8%A9/id6766034060" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    تنزيل
+  </a>
+</div>
+```
 
   </div>
 </section>
 
 <!-- Wave into features -->
+
 <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" style="display:block;background:#f5f0e8;margin-bottom:-2px;">
   <path d="M0,20 C360,0 1080,40 1440,20 L1440,40 L0,40 Z" fill="#ffffff"/>
 </svg>
 
 <!-- Features -->
+
 <div class="features-section">
   <div class="features-inner">
     <div class="section-label">مميزات التطبيقات</div>
@@ -683,6 +713,7 @@
 </svg>
 
 <!-- Privacy Notice -->
+
 <section style="padding-top:40px; padding-bottom:40px;">
   <div class="section-label">الخصوصية</div>
   <div class="section-title">سياسة الخصوصية</div>
@@ -690,63 +721,33 @@
   <p style="font-size:0.92rem;color:var(--text-light);line-height:1.8;max-width:600px;">
     نحترم خصوصيتك ونلتزم بحماية بياناتك. جميع التطبيقات تتبع سياسة خصوصية واضحة ومتوافقة مع متطلبات Apple.
     <br><br>
-    
+
   </p>
 </section>
 
+```
+<div class="contact-buttons">
+  <a class="contact-btn btn-appstore" href="https://apps.apple.com/us/developer/ahmad-almutairi/id1478917825" target="_blank">
+    <span class="btn-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    </span>
+    صفحتي على App Store
+  </a>
+  <a class="contact-btn btn-instagram" href="https://www.instagram.com/ahmadalmutairi51" target="_blank">
+    <span class="btn-icon">📸</span>
+    instagram
+  </a>
+</div>
+```
 
-    <div class="contact-buttons">
-      <a class="contact-btn btn-appstore" href="https://apps.apple.com/us/developer/ahmad-almutairi/id1478917825" target="_blank">
-        <span class="btn-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        </span>
-        صفحتي على App Store
-      </a>
-      <a class="contact-btn btn-instagram" href="https://www.instagram.com/ahmadalmutairi51" target="_blank">
-        <span class="btn-icon">📸</span>
-        instagram
-      </a>
-    </div>
   </div>
 </div>
 
 <!-- Footer -->
+
 <footer>
   <p>جميع الحقوق محفوظة © 2026 <span>أحمد المطيري</span> — iOS Developer · Kuwait 🇰🇼</p>
 </footer>
 
-<script>
-// Load app icons from iTunes API
-const apps = [
-  { id: '6742149901', emoji: '🎯' },
-  { id: '6758775649', emoji: '🔢' },
-  { id: '1641003990', emoji: '🦸' },
-  { id: '1669288810', emoji: '🔤' },
-  { id: '6744545396', emoji: '🃏' },
-  { id: '6581487564', emoji: '📖' },
-  { id: '6446178832', emoji: '🕌' },
-];
-
-apps.forEach((app, i) => {
-  setTimeout(() => {
-    fetch(`https://itunes.apple.com/lookup?id=${app.id}`)
-      .then(r => r.json())
-      .then(data => {
-        const wrap = document.getElementById(`icon-${app.id}`);
-        if (!wrap) return;
-        if (data.results && data.results[0] && data.results[0].artworkUrl100) {
-          const imgUrl = data.results[0].artworkUrl100.replace('100x100', '200x200');
-          wrap.innerHTML = `<img src="${imgUrl}" alt="app icon" loading="lazy">`;
-        } else {
-          wrap.innerHTML = `<div class="app-icon-placeholder">${app.emoji}</div>`;
-        }
-      })
-      .catch(() => {
-        const wrap = document.getElementById(`icon-${app.id}`);
-        if (wrap) wrap.innerHTML = `<div class="app-icon-placeholder">${app.emoji}</div>`;
-      });
-  }, i * 120);
-});
-</script>
 </body>
 </html>
