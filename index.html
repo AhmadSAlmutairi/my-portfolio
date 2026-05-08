@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>أحمد المطيري – تطبيقاتي</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -462,89 +463,105 @@ function getIconWrap(card) {
   return card.querySelector('.app-icon-wrap');
 }
 
+function buildIconUrl(result) {
+  // Prefer artworkUrl512, then scale up artworkUrl100
+  if (result.artworkUrl512) return result.artworkUrl512;
+  if (result.artworkUrl100) {
+    // artworkUrl100 ends with something like "100x100bb.jpg"
+    // Replace only the size portion safely
+    return result.artworkUrl100
+      .replace(/\d+x\d+bb(\.\w+)$/, '512x512bb$1')
+      .replace(/\d+x\d+(\.\w+)$/, '512x512$1');
+  }
+  return '';
+}
+
 function setIconImage(wrap, url, emoji) {
   const img = document.createElement('img');
   img.alt = 'app icon';
   img.loading = 'lazy';
+  img.referrerPolicy = 'no-referrer';
+  img.crossOrigin = 'anonymous';
   img.onload = () => {
     img.classList.add('loaded');
     wrap.innerHTML = '';
     wrap.appendChild(img);
   };
   img.onerror = () => {
+    // Try without crossOrigin as fallback
+    if (img.crossOrigin) {
+      const img2 = document.createElement('img');
+      img2.alt = 'app icon';
+      img2.loading = 'lazy';
+      img2.referrerPolicy = 'no-referrer';
+      img2.onload = () => { img2.classList.add('loaded'); wrap.innerHTML = ''; wrap.appendChild(img2); };
+      img2.onerror = () => { wrap.innerHTML = `<div class="icon-error">${emoji}</div>`; };
+      img2.src = url;
+      return;
+    }
     wrap.innerHTML = `<div class="icon-error">${emoji}</div>`;
   };
   img.src = url;
 }
 
-// Fetch all 9 apps in a single batch request
+// Fetch all apps — tries multiple endpoints for reliability
 async function loadAllIcons() {
   const cards = document.querySelectorAll('.app-card[data-id]');
   const ids = Array.from(cards).map(c => c.dataset.id).join(',');
 
-  try {
-    const res = await fetch(`https://itunes.apple.com/lookup?id=${ids}&country=us`);
-    const data = await res.json();
+  // Try Kuwait store first (your apps), then US, then no-country
+  const endpoints = [
+    `https://itunes.apple.com/lookup?id=${ids}&country=kw&entity=software`,
+    `https://itunes.apple.com/lookup?id=${ids}&country=us&entity=software`,
+    `https://itunes.apple.com/lookup?id=${ids}&entity=software`,
+  ];
 
-    // Build a map: id -> artworkUrl
-    const iconMap = {};
-    if (data.results) {
-      data.results.forEach(app => {
-        if (app.trackId && app.artworkUrl512) {
-          iconMap[String(app.trackId)] = app.artworkUrl512;
-        } else if (app.trackId && app.artworkUrl100) {
-          iconMap[String(app.trackId)] = app.artworkUrl100.replace('100x100bb', '512x512bb').replace('100x100', '512x512');
-        }
+  let iconMap = {};
+
+  for (const endpoint of endpoints) {
+    try {
+      const res = await fetch(endpoint, {
+        referrerPolicy: 'no-referrer',
+        cache: 'default',
       });
-    }
+      if (!res.ok) continue;
+      const data = await res.json();
+      if (data.results && data.results.length > 0) {
+        data.results.forEach(app => {
+          if (app.trackId) {
+            const url = buildIconUrl(app);
+            if (url) iconMap[String(app.trackId)] = url;
+          }
+        });
+        if (Object.keys(iconMap).length > 0) break;
+      }
+    } catch(e) { continue; }
+  }
 
-    // Apply icons to each card
-    cards.forEach((card, i) => {
-      const id = card.dataset.id;
-      const wrap = getIconWrap(card);
-      const emoji = EMOJIS[id] || '📱';
-
-      setTimeout(() => {
-        if (iconMap[id]) {
-          setIconImage(wrap, iconMap[id], emoji);
-        } else {
-          // Fallback: try individual lookup
-          fetch(`https://itunes.apple.com/lookup?id=${id}`)
-            .then(r => r.json())
-            .then(d => {
-              const result = d.results && d.results[0];
-              if (result) {
-                const url = (result.artworkUrl512 || result.artworkUrl100 || '').replace('100x100bb','512x512bb').replace('100x100','512x512');
-                if (url) { setIconImage(wrap, url, emoji); return; }
-              }
-              wrap.innerHTML = `<div class="icon-error">${emoji}</div>`;
-            })
-            .catch(() => { wrap.innerHTML = `<div class="icon-error">${emoji}</div>`; });
-        }
-      }, i * 80);
-    });
-
-  } catch(e) {
-    // Fallback: load each individually with stagger
-    cards.forEach((card, i) => {
-      const id = card.dataset.id;
-      const wrap = getIconWrap(card);
-      const emoji = EMOJIS[id] || '📱';
-      setTimeout(() => {
-        fetch(`https://itunes.apple.com/lookup?id=${id}`)
+  // Apply to cards
+  cards.forEach((card, i) => {
+    const id = card.dataset.id;
+    const wrap = getIconWrap(card);
+    const emoji = EMOJIS[id] || '📱';
+    setTimeout(() => {
+      if (iconMap[id]) {
+        setIconImage(wrap, iconMap[id], emoji);
+      } else {
+        // Per-app fallback
+        fetch(`https://itunes.apple.com/lookup?id=${id}&country=kw`, { referrerPolicy: 'no-referrer' })
           .then(r => r.json())
           .then(d => {
             const result = d.results && d.results[0];
             if (result) {
-              const url = (result.artworkUrl512 || result.artworkUrl100 || '').replace('100x100bb','512x512bb').replace('100x100','512x512');
+              const url = buildIconUrl(result);
               if (url) { setIconImage(wrap, url, emoji); return; }
             }
             wrap.innerHTML = `<div class="icon-error">${emoji}</div>`;
           })
           .catch(() => { wrap.innerHTML = `<div class="icon-error">${emoji}</div>`; });
-      }, i * 150);
-    });
-  }
+      }
+    }, i * 80);
+  });
 }
 
 // Scroll-triggered card animations
